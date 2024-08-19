@@ -19,13 +19,13 @@ export class CardFormComponent implements OnInit {
     fullName: new FormControl('', [
       Validators.required,
       Validators.minLength(8),
-<<<<<<< HEAD
       Validators.maxLength(65),
-=======
-      Validators.maxLength(64),
->>>>>>> 3ed15c998d8500c53a76ce6247005d3012edf56e
     ]),
   });
+
+  constructor() {
+    console.log(this.cardForm.controls.fullName);
+  }
   ngOnInit(): void {
     //throw new Error('Method not implemented.');
   }
