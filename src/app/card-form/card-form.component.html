@@ -1,0 +1,18 @@
+<form [formGroup]="cardForm">
+  <input formControlName="fullName">
+  <ng-container *ngIf="cardForm.controls.fullName.errors">
+    <div *ngIf="cardForm.controls.fullName.errors['required']" class="error">Full name is required</div>
+    <div *ngIf="cardForm.controls.fullName.errors['minlength']" class="error">Value you entered is
+      {{cardForm.controls.fullName.errors['minlength'].actualLength}} must be greater than
+      {{cardForm.controls.fullName.errors['minlength'].requiredLength}}
+    </div>
+    <div *ngIf="cardForm.controls.fullName.errors['maxlength']" class="error">Value you entered is
+      {{cardForm.controls.fullName.errors['maxlength'].actualLength}} must be less than
+      {{cardForm.controls.fullName.errors['maxlength'].requiredLength}}
+    </div>
+  </ng-container>
+</form>
+
+<div>Form Content : {{cardForm.value | json}}</div>
+<div>Form is valid: {{cardForm.valid}}</div>
+<div>Errors name: {{cardForm.controls.fullName.errors | json}}</div>
