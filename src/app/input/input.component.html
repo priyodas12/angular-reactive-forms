@@ -1,0 +1,17 @@
+<div class="field">
+  <label class="label">{{label}}</label>
+  <input class="input" [formControl]="control" [ngClass]="{'is-danger': showErrors()}">
+  <ng-container *ngIf="showErrors()">
+    <div class="help is-danger" *ngIf="control.errors['required']" class="error">Full name is required</div>
+    <div class="help is-danger" *ngIf="control.errors['minlength']" class="error">Value you entered is
+      {{control.errors['minlength'].actualLength}} must be greater than
+      {{control.errors['minlength'].requiredLength}}
+    </div>
+    <div class="help is-danger" *ngIf="control.errors['maxlength']" class="error">Value you entered is
+      {{control.errors['maxlength'].actualLength}} must be less than
+      {{control.errors['maxlength'].requiredLength}}
+    </div>
+    <div class="help is-danger" *ngIf="control.errors['pattern']" class="error">Invalid format!
+    </div>
+  </ng-container>
+</div>
